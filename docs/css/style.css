@@ -189,6 +189,10 @@ ul { /* Selecciona elementos de lista no ordenada */
 	letter-spacing: 5px; /* Espaciado entre letras de 5px */
 	position: relative; /* Posición relativa para pseudo-elementos */
 }
+.aside .logo a img{
+	width: 200px;
+	padding-bottom: 50px;
+}
 
 .aside .logo a span { /* Estilos para el span dentro del logotipo */
 	font-family: 'Clicker Script', cursive; /* Fuente especial para resaltar */
