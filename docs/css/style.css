@@ -1,834 +1,850 @@
-@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;500;600;700&display=swap');
-:root
-{
-	--bg-black-900:#f2f2fc;
-	--bg-black-100:#fdf9ff;
-	--bg-black-50:#e8dfec;
-	--text-black-900:#302e4d;
-	--text-black-700:#504e70;
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;500;600;700&display=swap'); /* Importa las fuentes "Clicker Script" y "Poppins" desde Google Fonts */
+
+:root { /* Define las variables CSS para el tema claro */
+	--bg-black-900: #f2f2fc; /* Color de fondo principal */
+	--bg-black-100: #fdf9ff; /* Color de fondo secundario */
+	--bg-black-50:  #e8dfec; /* Color de fondo terciario */
+	--text-black-900: #302e4d; /* Color de texto principal */
+	--text-black-700: #504e70; /* Color de texto secundario */
 }
-body.dark
-{
-	--bg-black-900:#151515;
-	--bg-black-100:#222222;
-	--bg-black-50:#393939;
-	--text-black-900:#ffffff;
-	--text-black-700:#e9e9e9;
+
+body.dark { /* Define las variables CSS para el tema oscuro */
+	--bg-black-900: #151515; /* Fondo principal en modo oscuro */
+	--bg-black-100: #222222; /* Fondo secundario en modo oscuro */
+	--bg-black-50:  #393939; /* Fondo terciario en modo oscuro */
+	--text-black-900: #ffffff; /* Texto principal en modo oscuro */
+	--text-black-700: #e9e9e9; /* Texto secundario en modo oscuro */
 }
-:body
-{
-	line-height: 1.5;
-	font-size: 16px;
-	font-family: 'Poppins' sans-serif;
+
+:body { /* Regla (posible error) que intenta aplicar estilos al body */
+	line-height: 1.5; /* Altura de línea 1.5 */
+	font-size: 16px; /* Tamaño base de fuente de 16px */
+	font-family: 'Poppins' sans-serif; /* Fuente principal, Poppins sin serif */
 }
-*
-{
-	margin: 0;
-	padding: 0;
-	outline: none;
-	text-decoration: none;
-	box-sizing: border-box;
+
+* { /* Selecciona todos los elementos */
+	margin: 0; /* Elimina márgenes predeterminados */
+	padding: 0; /* Elimina relleno predeterminado */
+	outline: none; /* Quita contornos de enfoque */
+	text-decoration: none; /* Elimina decoraciones de texto (subrayados, etc.) */
+	box-sizing: border-box; /* Usa el modelo de caja border-box para incluir padding y borde en el ancho total */
 }
-::before,::after
-{
-	box-sizing: border-box;
+
+::before, ::after { /* Aplica a los pseudo-elementos before y after */
+	box-sizing: border-box; /* Asegura que también usen el modelo border-box */
 }
-ul
-{
-	list-style: none;
+
+ul { /* Selecciona elementos de lista no ordenada */
+	list-style: none; /* Elimina los puntos de la lista */
 }
-.section
-{
-	background: var(--bg-black-900);
-	min-height: 100vh;
-	display: block;
-	padding: 0 30px;	
-	opacity: 1;
-	position: fixed;
-	left: 270px;
-	right: 0;
-	top: 0;
-	border:	0;
-	z-index: 0;
-	overflow-y: auto;
-	overflow-x: hidden;
-	transition: all 0.3s ease;
+
+.section { /* Estilos para elementos con la clase "section" */
+	background: var(--bg-black-900); /* Fondo según la variable */
+	min-height: 100%; /* Altura mínima igual a la ventana */
+	display: block; /* Se muestra como bloque */
+	padding: 0 30px;	/* Relleno horizontal de 30px */
+	opacity: 1; /* Opacidad completa */
+	position: fixed; /* Posición fija en la pantalla */
+	left: 270px; /* Ubicada 270px desde la izquierda (para dar espacio al aside) */
+	right: 0; /* Extendiéndose hasta el borde derecho */
+	top: 0; /* Ubicada en la parte superior */
+	border: 0; /* Sin borde */
+	z-index: 0; /* Nivel de apilamiento 0 */
+	overflow-y: auto; /* Permite scroll vertical */
+	overflow-x: hidden; /* Oculta scroll horizontal */
+	transition: all 0.3s ease; /* Transición suave para cambios de estado */	
 }
-.section.back-section
-{
-	z-index: 1;
+
+.section.back-section { /* Estilo para secciones de fondo */
+	z-index: 1; /* Nivel de apilamiento 1 */
 }
-.section.active
-{
-	z-index: 2;
-	opacity: 1;
-	animation: slideSection 1s ease;
+
+.section.active { /* Estilo para la sección activa */
+	z-index: 2; /* Nivel de apilamiento 2 para estar encima de otras */
+	opacity: 1; /* Opacidad completa */
+	animation: slideSection 1s ease; /* Aplica la animación "slideSection" en 1s */
 }
-@Keyframes slideSection
-{
-	0%
-	{
-		transform: translateX(100%);
+
+@Keyframes slideSection { /* Define la animación "slideSection" */
+	0% { /* Estado inicial */
+		transform: translateX(100%); /* Se inicia desplazada completamente a la derecha */
 	}
-	100%
-	{
-		transform: translateX(0%);
+	100% { /* Estado final */
+		transform: translateX(0%); /* Regresa a su posición original */
 	}
 }
-.hidden
-{
-	display: none !important;
+
+.hidden { /* Clase para ocultar elementos */
+	display: none !important; /* Fuerza la ocultación */
 }
-.padd-15
-{
-	padding-left: 15px;
-	padding-right: 15px;
+
+.padd-15 { /* Clase para agregar padding horizontal de 15px */
+	padding-left: 15px; /* Padding izquierdo de 15px */
+	padding-right: 15px; /* Padding derecho de 15px */
 }
-.container
-{
-	max-width: 1100px;
-	width: 100%;
-	margin: auto;
+
+.container { /* Clase para contenedores centrados */
+	max-width: 1100px; /* Ancho máximo de 1100px */
+	width: 100%; /* Ocupa el 100% del ancho disponible */
+	margin: auto; /* Centrado automático */
 }
-.section .container
-{
-	padding-top: 60px;
-	padding-bottom: 70px;
+
+.section .container { /* Contenedor dentro de una sección */
+	padding-top: 60px; /* Padding superior de 60px */
+	padding-bottom: 70px; /* Padding inferior de 70px */
 }
-.section-title
-{
-	flex: 0 0 100%;
-	max-width: 100%;
-	margin-bottom: 60px;	
+
+.section-title { /* Estilo para títulos de sección */
+	flex: 0 0 100%; /* Ocupa el 100% del ancho en layouts flex */
+	max-width: 100%; /* Ancho máximo del 100% */
+	margin-bottom: 60px;	/* Margen inferior de 60px */
 }
-.section-title h2
-{
-	font-size: 40px;
-	color: var(--text-black-900);
-	font-weight: 700;
-	position: relative;
+
+.section-title h2 { /* Títulos h2 dentro de sección */
+	font-size: 40px; /* Tamaño de fuente de 40px */
+	color: var(--text-black-900); /* Color del texto según la variable */
+	font-weight: 700; /* Fuente en negrita */
+	position: relative; /* Posición relativa para posicionar pseudo-elementos */
 }
-.section-title h2::before
-{
-	content: '';
-	height: 4px;
-	width: 50px;
-	background-color: var(--skin-color);
-	position: absolute;
-	top: 100%;
-	left: 0;	
+
+.section-title h2::before { /* Pseudo-elemento antes del título h2 */
+	content: ''; /* Contenido vacío */
+	height: 4px; /* Altura de 4px */
+	width: 50px; /* Ancho de 50px */
+	background-color: var(--skin-color); /* Color de fondo usando la variable "skin-color" */
+	position: absolute; /* Posición absoluta */
+	top: 100%; /* Ubicado justo debajo del h2 */
+	left: 0;	/* Alineado a la izquierda */
 }
-.section-title h2::after
-{
-	content: '';
-	height: 4px;
-	width: 25px;
-	background-color: var(--skin-color);
-	position: absolute;
-	top: 100%;
-	left: 0;
-	margin-top: 8px;
+
+.section-title h2::after { /* Pseudo-elemento después del título h2 */
+	content: ''; /* Contenido vacío */
+	height: 4px; /* Altura de 4px */
+	width: 25px; /* Ancho de 25px */
+	background-color: var(--skin-color); /* Color de fondo usando "skin-color" */
+	position: absolute; /* Posición absoluta */
+	top: 100%; /* Ubicado justo debajo del h2 */
+	left: 0; /* Alineado a la izquierda */
+	margin-top: 8px; /* Margen superior de 8px para separar */
 }
-.row
-{
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: -15px;
-	margin-right: -15px;
-	position: relative;
+
+.row { /* Clase para filas en un layout flex */
+	display: flex; /* Utiliza flexbox para la distribución */
+	flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
+	margin-left: -15px; /* Márgenes negativos para compensar el padding */
+	margin-right: -15px; /* Igual para el lado derecho */
+	position: relative; /* Posición relativa */
 }
-.btn
-{
-	font-size: 16px;
-	font-weight: 500;
-	padding: 12px 35px;
-	color: white;
-	border-radius: 40px;
-	display: inline-block;
-	white-space: nowrap;
-	border: none;
-	background: var(--skin-color);
-	transition: all 0.6s ease;
+
+.btn { /* Estilos para botones */
+	font-size: 16px; /* Tamaño de fuente de 16px */
+	font-weight: 500; /* Peso medio de la fuente */
+	padding: 12px 35px; /* Padding vertical de 12px y horizontal de 35px */
+	color: white; /* Texto en color blanco */
+	border-radius: 40px; /* Bordes redondeados de 40px */
+	display: inline-block; /* Se muestra como bloque en línea */
+	white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+	border: none; /* Sin borde */
+	background: var(--skin-color); /* Fondo según la variable "skin-color" */
+	transition: all 0.6s ease; /* Transición suave para efectos hover */
 }
-.btn:hover
-{
-	transform: scale(1.07);
+
+.btn:hover { /* Efecto hover en botones */
+	transform: scale(1.07); /* Incrementa el tamaño al 107% */
 }
-.shadow-dark
-{
-	box-shadow: 0 0 20px rgba(48, 46, 77, 0.30);
+
+.shadow-dark { /* Clase para aplicar sombra oscura */
+	box-shadow: 0 0 20px rgba(48, 46, 77, 0.30); /* Sombra de 20px con opacidad 0.3 */
 }
+
 /* ASIDE */
-.aside
-{
-	width: 270px;
-	background: var(--bg-black-100);
-	position: fixed;
-	left: 0;
-	top: 0;
-	padding: 30px;
-	height: 100%;
-	border-right: 1px solid var(--bg-black-50);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 10;
-	transition: all 0.3s ease;
+.aside { /* Estilos para la barra lateral */
+	width: 270px; /* Ancho fijo de 270px */
+	background: var(--bg-black-100); /* Fondo según la variable */
+	position: fixed; /* Posición fija en la pantalla */
+	left: 0; /* Ubicada en el borde izquierdo */
+	top: 0; /* Ubicada en el tope */
+	padding: 30px; /* Padding de 30px */
+	height: 100%; /* Altura completa de la ventana */
+	border-right: 1px solid var(--bg-black-50); /* Borde derecho de 1px usando variable */
+	display: flex; /* Usa flexbox para centrar el contenido */
+	justify-content: center; /* Centrado horizontal */
+	align-items: center; /* Centrado vertical */
+	z-index: 10; /* Nivel de apilamiento 10 */
+	transition: all 0.3s ease; /* Transición suave para cambios */
 }
-.aside .logo
-{
-	position: absolute;
-	top: 50px;
-	font-size: 30px;
-	text-transform: capitalize;
-}
-.aside .logo a
-{
-	color: var(--text-black-900);
-	font-weight: 700;
-	padding: 15px 20px;
-	font-size: 30px;
-	letter-spacing: 5px;
-	position: relative;
 
+.aside .logo { /* Estilos para el logotipo dentro del aside */
+	position: absolute; /* Posición absoluta */
+	top: 50px; /* Ubicado a 50px del tope */
+	font-size: 30px; /* Tamaño de fuente de 30px */
+	text-transform: capitalize; /* Capitaliza la primera letra de cada palabra */
 }
-.aside .logo a span
-{
-	font-family: 'Clicker Script', cursive;
-	font-size: 40px;
-}
-.aside .logo a span::before
-{
-	content: '';
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	border-bottom: 5px solid var(--skin-color);
-	border-left: 5px solid var(--skin-color);
-	bottom: 0;
-	left: 0;
-}
-.aside .logo a span::after
-{
-	content: '';
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	border-top: 5px solid var(--skin-color);
-	border-right: 5px solid var(--skin-color);
-	top: 0;
-	right: 0;
-}
-.aside .nav-toggler
-{
-	height: 40px;
-	width: 45px;
-	border: 1px solid var(--bg-black-50);
-	cursor: pointer;
-	position: fixed;
-	left: 300px;
-	top: 20px;
-	border-radius: 5px;
-	background: var(--bg-black-100);
-	display: none;
-	align-items: center;
-	justify-content: center;
-	transition: all 0.3s ease;
-}
-.aside .nav-toggler span
-{
-	height: 2px;
-	width: 18px;
-	background: var(--skin-color);
-	display: inline-block;
-	position: relative;
-}
-.aside .nav-toggler.open span
-{
-	background-color: transparent;
-}
-.aside .nav-toggler.open span::after
-{
-	transform: rotate(45deg);
-	top: 0;
-}
-.aside .nav-toggler span::before
-{
-	content: '';
-	height: 2px;
-	width: 18px;
-	background: var(--skin-color);
-	position: absolute;
-	top: -6px;
-	left: 0;
 
+.aside .logo a { /* Estilos para el enlace del logotipo */
+	color: var(--text-black-900); /* Color del texto según la variable */
+	font-weight: 700; /* Texto en negrita */
+	padding: 15px 20px; /* Padding vertical de 15px y horizontal de 20px */
+	font-size: 30px; /* Tamaño de fuente de 30px */
+	letter-spacing: 5px; /* Espaciado entre letras de 5px */
+	position: relative; /* Posición relativa para pseudo-elementos */
 }
-.aside .nav-toggler.open span::before
-{
-	transform: rotate(-45deg);
-	top: 0;
-}
-.aside .nav-toggler span::after
-{
-	content: '';
-	height: 2px;
-	width: 18px;
-	background: var(--skin-color);
-	position: absolute;
-	top: 6px;
-	left: 0;
-	
-}
-.aside .nav
-{
-	margin-top: 50px;
 
+.aside .logo a span { /* Estilos para el span dentro del logotipo */
+	font-family: 'Clicker Script', cursive; /* Fuente especial para resaltar */
+	font-size: 40px; /* Tamaño de fuente de 40px */
 }
-.aside .nav li
-{
-	margin-bottom: 20px;
-	display: block;
-	
+
+.aside .logo a span::before { /* Pseudo-elemento antes del span del logotipo */
+	content: ''; /* Contenido vacío */
+	position: absolute; /* Posición absoluta */
+	width: 20px; /* Ancho de 20px */
+	height: 20px; /* Altura de 20px */
+	border-bottom: 5px solid var(--skin-color); /* Borde inferior de 5px usando "skin-color" */
+	border-left: 5px solid var(--skin-color); /* Borde izquierdo de 5px usando "skin-color" */
+	bottom: 0; /* Ubicado en el fondo */
+	left: 0; /* Ubicado a la izquierda */
 }
-.aside .nav li a
-{
-	font-size: 16px;
-	font-weight: 600;
-	display: block;
-	border-bottom: 1px solid var(--bg-black-50);
-	color: var(--text-black-900);
-	padding: 5px 15px;	
+
+.aside .logo a span::after { /* Pseudo-elemento después del span del logotipo */
+	content: ''; /* Contenido vacío */
+	position: absolute; /* Posición absoluta */
+	width: 20px; /* Ancho de 20px */
+	height: 20px; /* Altura de 20px */
+	border-top: 5px solid var(--skin-color); /* Borde superior de 5px usando "skin-color" */
+	border-right: 5px solid var(--skin-color); /* Borde derecho de 5px usando "skin-color" */
+	top: 0; /* Ubicado en la parte superior */
+	right: 0; /* Ubicado a la derecha */
 }
-.aside .nav li a.active
-{
-	color: var(--skin-color);
+
+.aside .nav-toggler { /* Estilos para el botón toggler en el aside */
+	height: 40px; /* Altura de 40px */
+	width: 45px; /* Ancho de 45px */
+	border: 1px solid var(--bg-black-50); /* Borde de 1px usando variable */
+	cursor: pointer; /* Cambia el cursor a puntero */
+	position: fixed; /* Posición fija */
+	left: 300px; /* Ubicado a 300px desde la izquierda */
+	top: 20px; /* Ubicado a 20px desde el tope */
+	border-radius: 5px; /* Bordes redondeados de 5px */
+	background: var(--bg-black-100); /* Fondo según variable */
+	display: none; /* Oculto por defecto */
+	align-items: center; /* Centrado vertical en flexbox */
+	justify-content: center; /* Centrado horizontal en flexbox */
+	transition: all 0.3s ease; /* Transición suave para cambios */
 }
-.aside .nav li a i
-{
-	margin-right: 15px;	
+
+.aside .nav-toggler span { /* Estilos para el span dentro del nav-toggler */
+	height: 2px; /* Altura de 2px */
+	width: 18px; /* Ancho de 18px */
+	background: var(--skin-color); /* Fondo según "skin-color" */
+	display: inline-block; /* Se muestra como bloque en línea */
+	position: relative; /* Posición relativa para pseudo-elementos */
 }
+
+.aside .nav-toggler.open span { /* Estado abierto del nav-toggler: span */
+	background-color: transparent; /* Fondo transparente */
+}
+
+.aside .nav-toggler.open span::after { /* Pseudo-elemento después en estado abierto */
+	transform: rotate(45deg); /* Rota 45 grados */
+	top: 0; /* Ubicado en la parte superior */
+}
+
+.aside .nav-toggler span::before { /* Pseudo-elemento antes del span del nav-toggler */
+	content: ''; /* Contenido vacío */
+	height: 2px; /* Altura de 2px */
+	width: 18px; /* Ancho de 18px */
+	background: var(--skin-color); /* Fondo según "skin-color" */
+	position: absolute; /* Posición absoluta */
+	top: -6px; /* Ubicado 6px por encima */
+	left: 0; /* Alineado a la izquierda */
+}
+
+.aside .nav-toggler.open span::before { /* Estado abierto: pseudo-elemento antes */
+	transform: rotate(-45deg); /* Rota -45 grados */
+	top: 0; /* Ubicado en la parte superior */
+}
+
+.aside .nav-toggler span::after { /* Pseudo-elemento después del span */
+	content: ''; /* Contenido vacío */
+	height: 2px; /* Altura de 2px */
+	width: 18px; /* Ancho de 18px */
+	background: var(--skin-color); /* Fondo según "skin-color" */
+	position: absolute; /* Posición absoluta */
+	top: 6px; /* Ubicado 6px por debajo */
+	left: 0; /* Alineado a la izquierda */
+}
+
+.aside .nav { /* Estilos para el menú de navegación dentro del aside */
+	margin-top: 50px; /* Margen superior de 50px */
+}
+
+.aside .nav li { /* Ítems de la lista de navegación */
+	margin-bottom: 20px; /* Margen inferior de 20px */
+	display: block; /* Se muestran en bloque */
+}
+
+.aside .nav li a { /* Enlaces dentro de la navegación */
+	font-size: 16px; /* Tamaño de fuente de 16px */
+	font-weight: 600; /* Peso de fuente 600 */
+	display: block; /* Se muestran como bloque */
+	border-bottom: 1px solid var(--bg-black-50); /* Línea inferior con color según variable */
+	color: var(--text-black-900); /* Color del texto según variable */
+	padding: 5px 15px;	 /* Padding vertical de 5px y horizontal de 15px */
+}
+
+.aside .nav li a.active { /* Enlace activo dentro de la navegación */
+	color: var(--skin-color); /* Cambia el color a "skin-color" */
+}
+
+.aside .nav li a i { /* Íconos dentro de los enlaces de navegación */
+	margin-right: 15px;	/* Margen derecho de 15px para separar del texto */
+}
+
 /* Home */
-.home
-{
-	min-height: 100vh;
-	display: flex;
-	color: var(--text-black-900);
+.home { /* Sección Home */
+	min-height: 100vh; /* Altura mínima igual a la ventana */
+	display: flex; /* Usa flexbox para organizar elementos */
+	color: var(--text-black-900); /* Color del texto según variable */
 }
-.home .home-info
-{
-	flex: 0 0 60%;
-	max-width: 60%;	
+
+.home .home-info { /* Contenedor de información en Home */
+	flex: 0 0 60%; /* Ocupa el 60% del ancho en un flexbox */
+	max-width: 60%;	 /* Ancho máximo del 60% */
 }
-h3.hello
-{
-	font-size: 28px;
-	margin: 15px 0;
+
+h3.hello { /* Título de saludo en Home */
+	font-size: 30px; /* Tamaño de fuente de 28px */
+	margin: 15px 0; /* Margen vertical de 15px */
 }
-h3.hello span
-{
-	font-family: 'Clicker Script', cursive;
-	font-size: 30px;
-	font-weight: 700;
-	color: var(--skin-color);
+
+h3.hello span { /* Span dentro del título de saludo */
+	font-family: 'Clicker Script', cursive; /* Fuente especial para resaltar */
+	font-size: 45px; /* Tamaño de fuente de 30px */
+	font-weight: 700; /* Texto en negrita */
+	color: var(--skin-color); /* Color usando "skin-color" */
 }
-h3.my-profession
-{
-	font-size: 30px;
-	margin: 15px 0;
+
+h3.my-profession { /* Título que indica la profesión */
+	font-size: 30px; /* Tamaño de fuente de 30px */
+	margin: 15px 0; /* Margen vertical de 15px */
 }
-.typing
-{
-	color: var(--skin-color);
+
+.typing { /* Estilo para el texto con efecto de tipeo */
+	color: var(--skin-color); /* Color según "skin-color" */
 }
-.home-info p
-{
-	margin-bottom: 70px;
-	font-size: 20px;
-	color: var(--text-black-700);
+
+.home-info p { /* Párrafo en la sección Home */
+	margin-bottom: 70px; /* Margen inferior de 70px */
+	font-size: 20px; /* Tamaño de fuente de 20px */
+	color: var(--text-black-700); /* Color del texto según variable */
 }
-.home .home-img
-{
-	flex: 0 0 40%;
-	max-width: 40%;	
-	text-align: center;
-	position: relative;
+
+.home .home-img { /* Contenedor de imagen en Home */
+	flex: 0 0 40%; /* Ocupa el 40% del ancho en flexbox */
+	max-width: 40%;	 /* Ancho máximo del 40% */
+	text-align: center; /* Centrado del contenido */
+	position: relative; /* Posición relativa para pseudo-elementos */	
 }
-.home-img::after
-{
-	content: '';
-	position: absolute;
-	height: 80px;
-	width: 80px;
-	border-bottom: 10px solid var(--skin-color);
-	border-right: 10px solid var(--skin-color);
-	right: 20px;
-	bottom: -40px;
+
+.home-img::after { /* Pseudo-elemento después de la imagen */
+	content: ''; /* Contenido vacío */
+	position: absolute; /* Posición absoluta */
+	height: 80px; /* Altura de 80px */
+	width: 80px; /* Ancho de 80px */
+	border-bottom: 10px solid var(--skin-color); /* Borde inferior de 10px en "skin-color" */
+	border-right: 10px solid var(--skin-color); /* Borde derecho de 10px en "skin-color" */
+	right: 25px; /* Ubicado a 20px del borde derecho */
+	bottom: -50px; /* Ubicado 40px por debajo del contenedor */	
 }
-.home-img::before
-{
-	content: '';
-	position: absolute;
-	height: 80px;
-	width: 80px;
-	border-left: 10px solid var(--skin-color);
-	border-top: 10px solid var(--skin-color);
-	left: -20px;
-	top: -40px;
+
+.home-img::before { /* Pseudo-elemento antes de la imagen */
+	content: ''; /* Contenido vacío */
+	position: absolute; /* Posición absoluta */
+	height: 80px; /* Altura de 80px */
+	width: 80px; /* Ancho de 80px */
+	border-left: 10px solid var(--skin-color); /* Borde izquierdo de 10px en "skin-color" */
+	border-top: 10px solid var(--skin-color); /* Borde superior de 10px en "skin-color" */
+	left: -25px; /* Ubicado 20px a la izquierda del contenedor */
+	top: -40px; /* Ubicado 40px por encima del contenedor */
 }
-.home .home-img img
-{
-	margin: auto;
-	border-radius: 5px;
-	height: 400px;
+
+.home .home-img img { /* Estilos para la imagen dentro del contenedor Home */
+	margin: auto; /* Centrado automático */
+	border-radius: 100px; /* Bordes redondeados de 5px */
+	height: 300px; /* Altura fija de 400px */
+	margin-right: 75px;	
+	margin-bottom: 30px;	
 }
+
 /* ABOUT */
-.about .about-content
-{
-	flex: 0 0 100%;
-	max-width: 100%;	
-}
-.about .about-content .about-text
-{
-	flex: 0 0 100%;
-	max-width: 100%;	
-}
-.about .about-content .about-text h3
-{
-	font-size: 24px;
-	margin-bottom: 15px;
-	font-weight: 700;
-	color: var(--text-black-900);
-}
-.about .about-content .about-text h3 span
-{
-	color: var(--skin-color);
-}
-.about .about-content .about-text p
-{
-	font-size: 16px;
-	line-height: 25px;
-	color: var(--text-black-700);
-}
-.about .about-content .personal-info
-{
-	flex: 0 0 60%;
-	max-width: 60%;
-	margin-top: 40px;	
-}
-.about .about-content .personal-info .info-item
-{
-	flex: 0 0 50%;
-	max-width: 50%;
-	margin-top: 20px; /*yo agregue*/
-}
-.about .about-content .personal-info .info-item p
-{
-	font-weight: 600;
-	padding: 10px 0;
-	font-size: 16px;
-	color: var(--text-black-900);
-	border-bottom: 1px solid var(--bg-black-50);
-}
-.about .about-content .personal-info .info-item p span
-{
-	font-weight: 400;
-	color: var(--text-black-700);
-	margin-left: 4px;
-	display: inline-block;	
-}
-.about .about-content .personal-info .buttons
-{
-	margin-top: 30px;
-}
-.about .about-content .personal-info .buttons .btn
-{
-	/*html linea: 122*/
-	/*margin-right: 15px;*/
-	margin-top: 10px;
-}
-.about .about-content .skills
-{
-	flex: 0 0 40%;
-	max-width: 40%;
-	margin-top: 40px;
-}
-.about .about-content .skills .skill-item
-{
-	flex: 0 0 100%;
-	max-width: 100%;
-}
-.about .about-content .skills .skill-item h5
-{
-	line-height: 40px;
-	font-weight: 600;
-	font-size: 16px;
-	color: var(--text-black-900);
-	text-transform: capitalize;
-}
-.about .about-content .skills .skill-item .progress
-{
-	background-color: var(--bg-black-50);
-	height: 7px;
-	border-radius: 4px;
-	width: 100%;
-	position: relative;	
-}
-.about .about-content .skills .skill-item
-{
-	margin-bottom: 25px;
-}
-.about .about-content .skills .skill-item .progress .progress-in
-{
+.about .about-content { /* Contenedor de la sección About */
+	flex: 0 0 100%; /* Ocupa el 100% del ancho */
+	max-width: 100%;	 /* Ancho máximo del 100% */
 	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	border-radius: 4px;
-	background-color: var(--skin-color);
+	padding-bottom: 30px;
 }
-.about .about-content .skills .skill-item .skill-percent
-{
-	position: absolute;
-	right: 0;
-	color: var(--text-black-900);
-	top: -40px;
-	font-weight: 400;
-	line-height: 40px;
-}
-.about .about-content .education,
-.about .about-content .experience
-{
-	flex: 0 0 50%;
-	max-width: 50%;
-	margin-top: 30px;	
-}
-.about .about-content h3.title
-{
-	font-size: 24px;
-	margin-bottom: 30px;
-	font-weight: 700;
-	color: var(--text-black-900);
-}
-.about .about-content .timeline-box
-{
-	flex: 0 0 100%;
-	max-width: 100%;	
-}
-.about .about-content .timeline
-{
-	background-color: var(--bg-black-100);
-	padding: 30px 15px;
-	border: 1px solid var(--bg-black-50);
-	border-radius: 10px;
-	width: 100%;
-	position: relative;
-}
-.about .about-content .timeline .timeline-item
-{
-	position: relative;
-	padding-left: 37px;
-	padding-bottom: 50px;	
-}
-.about .about-content .timeline .timeline-item:last-child
-{
-	padding-bottom: 0;
 
+.about .about-content .about-text { /* Contenedor del texto en About */
+	flex: 0 0 100%; /* Ocupa el 100% del ancho */
+	max-width: 100%;	 /* Ancho máximo del 100% */
 }
-.about .about-content .timeline .timeline-item::before
-{
-	content: '';
-	width: 1px;
-	position: absolute;
-	height: 100%;
-	left: 7px;
-	top: 0;
-	background-color: var(--skin-color);
-}
-.about .about-content .timeline .circle-dot
-{
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 15px;
-	width: 15px;
-	border-radius: 50%;
-	background-color: var(--skin-color);
-}
-.about .about-content .timeline .timeline-date
-{
-	font-weight: 400;
-	font-size: 14px;
-	margin-bottom: 12px;
-	color: var(--text-black-700);
-}
-.about .about-content .timeline .timeline-date .fa
-{
-	margin-right: 5px;
-}
-.about .about-content .timeline .timeline-title
-{
-	font-weight: 700;
-	font-size: 18px;
-	margin-bottom: 15px;
-	text-transform: capitalize;
-	color: var(--text-black-700);
-}
-.about .about-content .timeline .timeline-text
-{
-	line-height: 25px;
-	font-size: 16px;
-	text-align: justify;
-	color: var(--text-black-700);
-}
-/* SERVICE */
-.service .container
-{
-	padding-bottom: 40px;
-}
-.service .service-item
-{
-	margin-bottom: 30px;
-	flex: 0 0 33.33%;
-	max-width: 33.33%;
-}
-.service .service-item .service-item-inner
-{
-	background-color: var(--bg-black-100);
-	border: 1px solid var(--bg-black-50);
-	border-radius: 10px;
-	padding: 30px 15px;
-	text-align: center;
-	transition: all 0.3s ease;
-}
-.service .service-item .service-item-inner:hover
-{
-	box-shadow: 0 0 20px rgba(48, 46, 77, 0.3);
-}
-.service .service-item .service-item-inner .icon
-{
-	height: 60px;
-	width: 60px;
-	border-radius: 50%;	
-	display: block;
-	margin: 0 auto 30px;
-	text-align: center;
-	transition: all 0.3s ease;
-}
-.service .service-item .service-item-inner .icon .fa
-{
-	font-size: 40px;
-	line-height: 60px;
-	color: var(--skin-color);
-	transition: all 0.3s ease;
-}
-.service .service-item .service-item-inner:hover .icon
-{
-	background-color: var(--skin-color);
 
+.about .about-content .about-text h3 { /* Título en el bloque de texto de About */
+	font-size: 24px; /* Tamaño de fuente de 24px */
+	margin-bottom: 15px; /* Margen inferior de 15px */
+	font-weight: 700; /* Texto en negrita */
+	color: var(--text-black-900); /* Color del texto según variable */
 }
-.service .service-item .service-item-inner:hover .icon .fa
-{
-	font-size: 27px;
-	color: #ffffff;
+
+.about .about-content .about-text h3 span { /* Span dentro del título */
+	color: var(--skin-color); /* Color usando "skin-color" */
 }
-.service .service-item .service-item-inner h4
-{
-	font-size: 18px;
-	margin-bottom: 15px;
-	color: var(--text-black-900);
-	font-weight: 700;
-	text-transform: capitalize;
+
+.about .about-content .about-text p { /* Párrafo en el bloque de texto de About */
+	font-size: 16px; /* Tamaño de fuente de 16px */
+	line-height: 25px; /* Altura de línea de 25px */
+	color: var(--text-black-700); /* Color del texto según variable */
 }
-.service .service-item .service-item-inner p
-{
-	font-size: 16px;
-	color: var(--text-black-700);
-	line-height: 25px;
+
+.about .about-content .personal-info { /* Contenedor de información personal en About */
+	flex: 0 0 60%; /* Ocupa el 60% del ancho en flexbox */
+	max-width: 60%; /* Ancho máximo del 60% */
+	margin-top: 40px;	 /* Margen superior de 40px */
 }
-/* PORTFOLIO */
-.portfolio .container
-{
-	padding-bottom: 40px;
+
+.about .about-content .personal-info .info-item { /* Ítems individuales de información personal */
+	flex: 0 0 50%; /* Cada ítem ocupa el 50% del ancho */
+	max-width: 50%; /* Ancho máximo del 50% */
+	margin-top: 20px; /* Margen superior de 20px */
 }
-.portfolio .portfolio-heading
-{
-	flex: 0 0 100%;
-	max-width: 100%;
-	margin-bottom: 40px;
+
+.about .about-content .personal-info .info-item p { /* Párrafo dentro de un ítem de información */
+	font-weight: 600; /* Peso de fuente 600 */
+	padding: 10px 0; /* Padding vertical de 10px */
+	font-size: 16px; /* Tamaño de fuente de 16px */
+	color: var(--text-black-900); /* Color del texto según variable */
+	border-bottom: 1px solid var(--bg-black-50); /* Línea inferior con color según variable */
 }
-.portfolio .portfolio-heading h2
-{
-	color: var(--text-black-900);
-	font-weight: 500%;
+
+.about .about-content .personal-info .info-item p span { /* Span dentro del párrafo de un ítem de información */
+	font-weight: 400; /* Peso normal de fuente */
+	color: var(--text-black-700); /* Color del texto según variable */
+	margin-left: 4px; /* Margen izquierdo de 4px */
+	display: inline-block;	 /* Se muestra como bloque en línea */
 }
-.portfolio .portfolio-item
-{
-	flex: 0 0 33.33%;
-	max-width: 33.33%;
-	margin-bottom: 30px;
-}
-.portfolio .portfolio-item-inner
-{
-	border: 6px solid var(--bg-black-100);
-	border-radius: 10px;
-	overflow: hidden;
-	cursor: pointer;
-}
-.portfolio .portfolio-item-inner .portfolio-img img
-{
-	width: 100%;
-	display: block;
-}
-/* CONTACT */
-.contact-title
-{
-	color: var(--skin-color);
-	text-align: center;
-	font-size: 25px;
-	margin-bottom: 20px;	
-}
-.contact-sub-title
-{
-	color: var(--text-black-900);
-	text-align: center;
-	font-size: 15px;
-	margin-bottom: 60px;
-}
-.contact .contact-info-item
-{
-	flex: 0 0 25%;
-	max-width: 25%;
-	text-align: center;
-	margin-bottom: 60px;
-}
-.contact .contact-info-item .icon
-{
+
+.about .about-content .personal-info .info-item p .led {
 	display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
 }
-.contact .contact-info-item .icon .fa
-{
-	font-size: 25px;
-	color: var(--skin-color);
+
+.about .about-content .personal-info .info-item p .led-red {
+	background-color: #ff6b6b; /* Rojo neón suave */
+    box-shadow: 0 0 8px #ff6b6b; /* Brillo neón */
 }
-.contact .contact-info-item h4
-{
-	font-size: 18px;
-	font-weight: 700;
-	color: var(--text-black-900);
-	text-transform: capitalize;
-	margin: 15px 0 5px;
+
+.fab {
+    transition: transform 0.3s ease, color 0.3s ease;
 }
-.contact .contact-info-item p
-{
-	font-size: 16px;
-	line-height: 25px;
-	color: var(--text-black-700);
-	font-weight: 400;
+
+.fab:hover {
+    transform: scale(1.2);
 }
-.contact .contact-form
-{
-	flex: 0 0 100%;
-	max-width: 100%;
+
+  /* Colores al hacer hover */
+.fa-facebook:hover { color: #1155b3 !important; }
+.fa-tiktok:hover { color: #ff0050 !important; }
+.fa-whatsapp:hover { color: #128c7e !important; }
+
+.about .about-content .personal-info .buttons { /* Contenedor para botones en información personal */
+	margin-top: 30px; /* Margen superior de 30px */
 }
-.contact .contact-form .col-6
-{
-	flex: 0 0 50%;
-	max-width: 50%;	
+
+.about .about-content .personal-info .buttons .btn { /* Estilos para botones dentro de la sección personal-info */
+	/* margin-right: 15px; */ /* Comentado: se eliminó el margen derecho */
+	margin-top: 10px; /* Margen superior de 10px */
 }
-.contact .contact-form .col-12
-{
-	flex: 0 0 100%;
-	max-width: 100%;	
+
+.about .about-content .skills { /* Contenedor para la sección de habilidades en About */
+	flex: 0 0 40%; /* Ocupa el 40% del ancho en flexbox */
+	max-width: 40%; /* Ancho máximo del 40% */
+	margin-top: 40px; /* Margen superior de 40px */
 }
-.contact .contact-form .form-item
-{
-	margin-bottom: 30px;
+
+.about .about-content .skills .skill-item { /* Ítem individual de habilidad */
+	flex: 0 0 100%; /* Ocupa el 100% del ancho */
+	max-width: 100%; /* Ancho máximo del 100% */
 }
-.contact .contact-form .form-item .form-control
-{
-	width: 100%;
-	height: 50px;
-	border-radius: 25px;
-	background: var(--bg-black-100);
-	border: 1px solid var(--bg-black-50);
-	padding: 10px 25px;
-	font-size: 16px;
-	color: var(--text-black-700);
-	transition: all 0.3s ease;
+
+.about .about-content .skills .skill-item h5 { /* Título de la habilidad */
+	line-height: 40px; /* Altura de línea de 40px */
+	font-weight: 600; /* Peso de fuente 600 */
+	font-size: 16px; /* Tamaño de fuente de 16px */
+	color: var(--text-black-900); /* Color del texto según variable */
+	text-transform: capitalize; /* Capitaliza la primera letra de cada palabra */
 }
-.contact .contact-form .form-item .form-control:focus
-{
-	box-shadow: 0 0 20px rgba(48, 46, 77, 0.3);
+
+.about .about-content .skills .skill-item .progress { /* Barra de progreso para habilidad */
+	background-color: var(--bg-black-50); /* Fondo según variable */
+	height: 7px; /* Altura de 7px */
+	border-radius: 4px; /* Bordes redondeados de 4px */
+	width: 100%; /* Ancho completo */
+	position: relative;	 /* Posición relativa para posicionar la barra interna */
 }
-.contact .contact-form .form-item textarea.form-control
-{
-	height: 140px;	
+
+.about .about-content .skills .skill-item { /* Ajuste para margen inferior en ítems de habilidad */
+	margin-bottom: 25px; /* Margen inferior de 25px */
 }
-.contact .contact-form .btn
-{
-	height: 50px;
-	padding: 0 50px;
+
+.about .about-content .skills .skill-item .progress .progress-in { /* Barra interna que muestra el progreso */
+	position: absolute; /* Posición absoluta dentro de la barra */
+	left: 0; /* Alineado a la izquierda */
+	top: 0; /* Alineado al tope */
+	height: 100%; /* Ocupa el 100% de la altura de la barra */
+	border-radius: 4px; /* Bordes redondeados de 4px */
+	background-color: var(--skin-color); /* Fondo según "skin-color" */
 }
-@media (max-width:1200px)
-{
-	.section .container
-	{
-		padding-top: 70px;
+
+.about .about-content .skills .skill-item .skill-percent { /* Texto que muestra el porcentaje de habilidad */
+	position: absolute; /* Posición absoluta */
+	right: 0; /* Alineado a la derecha */
+	color: var(--text-black-900); /* Color del texto según variable */
+	top: -40px; /* Ubicado 40px por encima de la barra */
+	font-weight: 400; /* Peso normal de fuente */
+	line-height: 40px; /* Altura de línea de 40px */
+}
+
+.about .about-content .education,
+.about .about-content .experience { /* Secciones de Educación y Experiencia */
+	flex: 0 0 50%; /* Cada sección ocupa el 50% del ancho */
+	max-width: 50%; /* Ancho máximo del 50% */
+	margin-top: 30px;	 /* Margen superior de 30px */
+}
+
+.about .about-content h3.title { /* Títulos de las secciones Educación y Experiencia */
+	font-size: 24px; /* Tamaño de fuente de 24px */
+	margin-bottom: 30px; /* Margen inferior de 30px */
+	font-weight: 700; /* Texto en negrita */
+	color: var(--text-black-900); /* Color del texto según variable */
+}
+
+.about .about-content .timeline-box { /* Contenedor para la línea de tiempo */
+	flex: 0 0 100%; /* Ocupa el 100% del ancho */
+	max-width: 100%;	 /* Ancho máximo del 100% */
+}
+
+.about .about-content .timeline { /* Línea de tiempo */
+	background-color: var(--bg-black-100); /* Fondo según variable */
+	padding: 30px 15px; /* Padding vertical de 30px y horizontal de 15px */
+	border: 1px solid var(--bg-black-50); /* Borde de 1px según variable */
+	border-radius: 10px; /* Bordes redondeados de 10px */
+	width: 100%; /* Ancho completo */
+	position: relative; /* Posición relativa para pseudo-elementos */
+}
+
+.about .about-content .timeline .timeline-item { /* Ítem individual en la línea de tiempo */
+	position: relative; /* Posición relativa */
+	padding-left: 37px; /* Padding izquierdo para dar espacio al ícono */
+	padding-bottom: 50px;	 /* Padding inferior de 50px */
+}
+
+.about .about-content .timeline .timeline-item:last-child { /* Último ítem en la línea de tiempo */
+	padding-bottom: 0; /* Sin padding inferior */
+}
+
+.about .about-content .timeline .timeline-item::before { /* Línea vertical en cada ítem de la línea de tiempo */
+	content: ''; /* Contenido vacío */
+	width: 1px; /* Ancho de 1px */
+	position: absolute; /* Posición absoluta */
+	height: 100%; /* Ocupa el 100% de la altura del ítem */
+	left: 7px; /* Ubicado a 7px desde la izquierda */
+	top: 0; /* Alineado al tope */
+	background-color: var(--skin-color); /* Fondo según "skin-color" */
+}
+
+.about .about-content .timeline .circle-dot { /* Punto circular que indica el evento en la línea de tiempo */
+	position: absolute; /* Posición absoluta */
+	left: 0; /* Alineado a la izquierda */
+	top: 0; /* Alineado al tope */
+	height: 15px; /* Altura de 15px */
+	width: 15px; /* Ancho de 15px */
+	border-radius: 50%; /* Forma circular */
+	background-color: var(--skin-color); /* Fondo según "skin-color" */
+}
+
+.about .about-content .timeline .timeline-date { /* Fecha en cada ítem de la línea de tiempo */
+	font-weight: 400; /* Peso normal de fuente */
+	font-size: 14px; /* Tamaño de fuente de 14px */
+	margin-bottom: 12px; /* Margen inferior de 12px */
+	color: var(--text-black-700); /* Color del texto según variable */
+}
+
+.about .about-content .timeline .timeline-date .fa { /* Ícono dentro de la fecha */
+	margin-right: 5px; /* Margen derecho de 5px */
+}
+
+.about .about-content .timeline .timeline-title { /* Título en cada ítem de la línea de tiempo */
+	font-weight: 700; /* Texto en negrita */
+	font-size: 18px; /* Tamaño de fuente de 18px */
+	margin-bottom: 15px; /* Margen inferior de 15px */
+	text-transform: capitalize; /* Capitaliza cada palabra */
+	color: var(--text-black-700); /* Color del texto según variable */
+}
+
+.about .about-content .timeline .timeline-text { /* Texto descriptivo en la línea de tiempo */
+	line-height: 25px; /* Altura de línea de 25px */
+	font-size: 16px; /* Tamaño de fuente de 16px */
+	text-align: justify; /* Justifica el texto */
+	color: var(--text-black-700); /* Color del texto según variable */
+}
+
+/* SERVICE */
+.service .container { /* Contenedor de la sección de servicios */
+	padding-bottom: 30px; /* Padding inferior de 40px */
+	position: absolute;	
+}
+
+.service .service-item { /* Ítem individual de servicio */
+	margin-bottom: 30px; /* Margen inferior de 30px */
+	flex: 0 0 33.33%; /* Ocupa un tercio del ancho en layouts flex */
+	max-width: 33.33%; /* Ancho máximo del 33.33% */
+}
+
+.service .service-item .service-item-inner { /* Contenedor interno de cada servicio */
+	background-color: var(--bg-black-100); /* Fondo según variable */
+	border: 1px solid var(--bg-black-50); /* Borde de 1px según variable */
+	border-radius: 10px; /* Bordes redondeados de 10px */
+	padding: 30px 15px; /* Padding vertical de 30px y horizontal de 15px */
+	text-align: center; /* Centrado del texto */
+	transition: all 0.3s ease; /* Transición suave para efectos hover */
+}
+
+.service .service-item .service-item-inner:hover { /* Efecto hover en el contenedor interno de servicio */
+	box-shadow: 0 0 20px rgba(48, 46, 77, 0.3); /* Aplica sombra al pasar el mouse */
+}
+
+.service .service-item .service-item-inner .icon { /* Contenedor del ícono del servicio */
+	height: 60px; /* Altura de 60px */
+	width: 60px; /* Ancho de 60px */
+	border-radius: 50%;	 /* Forma circular */
+	display: block; /* Se muestra como bloque */
+	margin: 0 auto 30px; /* Centrado horizontal y margen inferior de 30px */
+	text-align: center; /* Centrado del contenido */
+	transition: all 0.3s ease; /* Transición suave para efectos hover */
+}
+
+.service .service-item .service-item-inner .icon .fa { /* Ícono dentro del contenedor de ícono */
+	font-size: 40px; /* Tamaño de fuente de 40px */
+	line-height: 60px; /* Altura de línea igual a la altura del contenedor */
+	color: var(--skin-color); /* Color según "skin-color" */
+	transition: all 0.3s ease; /* Transición suave */
+}
+
+.service .service-item .service-item-inner:hover .icon { /* Efecto hover para el contenedor de ícono */
+	background-color: var(--skin-color); /* Fondo cambia a "skin-color" */
+}
+
+.service .service-item .service-item-inner:hover .icon .fa { /* Efecto hover para el ícono */
+	font-size: 27px; /* Reduce el tamaño a 27px */
+	color: #ffffff; /* Cambia el color a blanco */
+}
+
+.service .service-item .service-item-inner h4 { /* Título del servicio */
+	font-size: 18px; /* Tamaño de fuente de 18px */
+	margin-bottom: 15px; /* Margen inferior de 15px */
+	color: var(--text-black-900); /* Color del texto según variable */
+	font-weight: 700; /* Texto en negrita */
+	text-transform: capitalize; /* Capitaliza cada palabra */
+}
+
+.service .service-item .service-item-inner p { /* Descripción del servicio */
+	font-size: 16px; /* Tamaño de fuente de 16px */
+	color: var(--text-black-700); /* Color del texto según variable */
+	line-height: 25px; /* Altura de línea de 25px */
+}
+
+/* PORTFOLIO */
+.portfolio .container { /* Contenedor de la sección de portfolio */
+	padding-bottom: 40px; /* Padding inferior de 40px */
+	position: absolute;
+}
+
+.portfolio .portfolio-heading { /* Encabezado del portfolio */
+	flex: 0 0 100%; /* Ocupa el 100% del ancho en layouts flex */
+	max-width: 100%; /* Ancho máximo del 100% */
+	margin-bottom: 40px; /* Margen inferior de 40px */
+}
+
+.portfolio .portfolio-heading h2 { /* Título dentro del encabezado del portfolio */
+	color: var(--text-black-900); /* Color del texto según variable */
+	font-weight: 500%; /* Peso de fuente (valor inusual, revisar si se pretendía "500") */
+}
+
+.portfolio .portfolio-item { /* Ítem individual del portfolio */
+	flex: 0 0 33.33%; /* Ocupa un tercio del ancho */
+	max-width: 33.33%; /* Ancho máximo del 33.33% */
+	margin-bottom: 30px; /* Margen inferior de 30px */
+}
+
+.portfolio .portfolio-item-inner { /* Contenedor interno de cada ítem del portfolio */
+	border: 6px solid var(--bg-black-100); /* Borde de 6px con color según variable */
+	border-radius: 10px; /* Bordes redondeados de 10px */
+	overflow: hidden; /* Oculta contenido que desborde */
+	cursor: pointer; /* Cambia el cursor a puntero al pasar el mouse */
+}
+
+.portfolio .portfolio-item-inner .portfolio-img img { /* Imagen dentro del contenedor del portfolio */
+	width: 100%; /* Ancho completo */
+	display: block; /* Se muestra como bloque */
+}
+
+/* CONTACT */
+.contact .container { /* Contenedor de la sección de contacto */
+	padding-bottom: 40px; /* Padding inferior de 40px */
+	position: absolute;
+}
+.contact-title { /* Título de la sección de contacto */
+	color: var(--skin-color); /* Color según "skin-color" */
+	text-align: center; /* Centrado del texto */
+	font-size: 25px; /* Tamaño de fuente de 25px */
+	margin-bottom: 20px;	 /* Margen inferior de 20px */
+}
+
+.contact-sub-title { /* Subtítulo de la sección de contacto */
+	color: var(--text-black-900); /* Color del texto según variable */
+	text-align: center; /* Centrado del texto */
+	font-size: 15px; /* Tamaño de fuente de 15px */
+	margin-bottom: 60px; /* Margen inferior de 60px */
+}
+
+.contact .contact-info-item { /* Ítems de información de contacto */
+	flex: 0 0 25%; /* Cada ítem ocupa el 25% del ancho en layouts flex */
+	max-width: 25%; /* Ancho máximo del 25% */
+	text-align: center; /* Centrado del texto */
+	margin-bottom: 60px; /* Margen inferior de 60px */
+}
+
+.contact .contact-info-item .icon { /* Contenedor del ícono en información de contacto */
+	display: inline-block; /* Se muestra como bloque en línea */
+}
+
+.contact .contact-info-item .icon .fa { /* Ícono dentro del contenedor de información de contacto */
+	font-size: 25px; /* Tamaño de fuente de 25px */
+	color: var(--skin-color); /* Color según "skin-color" */
+}
+
+.contact .contact-info-item h4 { /* Título de cada ítem de información */
+	font-size: 18px; /* Tamaño de fuente de 18px */
+	font-weight: 700; /* Texto en negrita */
+	color: var(--text-black-900); /* Color del texto según variable */
+	text-transform: capitalize; /* Capitaliza cada palabra */
+	margin: 15px 0 5px; /* Márgenes: 15px arriba, 5px abajo */
+}
+
+.contact .contact-info-item p { /* Párrafo en cada ítem de información de contacto */
+	font-size: 16px; /* Tamaño de fuente de 16px */
+	line-height: 25px; /* Altura de línea de 25px */
+	color: var(--text-black-700); /* Color del texto según variable */
+	font-weight: 400; /* Peso normal de fuente */
+}
+
+.contact .contact-form { /* Contenedor del formulario de contacto */
+	flex: 0 0 100%; /* Ocupa el 100% del ancho en layouts flex */
+	max-width: 100%; /* Ancho máximo del 100% */
+}
+
+.contact .contact-form .col-6 { /* Columnas de 50% en el formulario */
+	flex: 0 0 50%; /* Ocupa el 50% del ancho */
+	max-width: 50%;	 /* Ancho máximo del 50% */
+}
+
+.contact .contact-form .col-12 { /* Columnas de 100% en el formulario */
+	flex: 0 0 100%; /* Ocupa el 100% del ancho */
+	max-width: 100%;	 /* Ancho máximo del 100% */
+}
+
+.contact .contact-form .form-item { /* Ítems individuales del formulario */
+	margin-bottom: 30px; /* Margen inferior de 30px */
+}
+
+.contact .contact-form .form-item .form-control { /* Estilos para campos de entrada en el formulario */
+	width: 100%; /* Ancho completo */
+	height: 50px; /* Altura de 50px */
+	border-radius: 25px; /* Bordes redondeados de 25px */
+	background: var(--bg-black-100); /* Fondo según variable */
+	border: 1px solid var(--bg-black-50); /* Borde de 1px según variable */
+	padding: 10px 25px; /* Padding vertical de 10px y horizontal de 25px */
+	font-size: 16px; /* Tamaño de fuente de 16px */
+	color: var(--text-black-700); /* Color del texto según variable */
+	transition: all 0.3s ease; /* Transición suave al interactuar */
+}
+
+.contact .contact-form .form-item .form-control:focus { /* Estilo al enfocar un campo de entrada */
+	box-shadow: 0 0 20px rgba(48, 46, 77, 0.3); /* Aplica sombra para resaltar el campo */
+}
+
+.contact .contact-form .form-item textarea.form-control { /* Área de texto en el formulario */
+	height: 140px;	 /* Altura de 140px */
+}
+
+.contact .contact-form .btn { /* Botón del formulario de contacto */
+	height: 50px; /* Altura de 50px */
+	padding: 0 50px; /* Padding horizontal de 50px */
+}
+
+@media (max-width:1200px) { /* Media query para pantallas con ancho máximo de 1200px */
+	.section .container { /* Ajusta el padding en contenedores dentro de secciones */
+		padding-top: 70px; /* Incrementa el padding superior a 70px */
 	}
-	.aside
-	{
-		left: -270px;
+	.aside { /* Ajusta la posición del aside */
+		left: -270px; /* Oculta el aside moviéndolo a la izquierda */
 	}
-	.aside.open
-	{
-		left: 0;
+	.aside.open { /* Cuando el aside está abierto */
+		left: 0; /* Se posiciona en 0, es decir, visible */
 	}
-	.aside .nav-toggler
-	{
-		display: flex;
-		left: 30px;
+	.aside .nav-toggler { /* Muestra el botón toggler en pantallas más pequeñas */
+		display: flex; /* Se muestra como flex */
+		left: 30px; /* Ubicado a 30px desde la izquierda */
 	}
-	.aside .nav-toggler.open
-	{		
-		left: 300px;
+	.aside .nav-toggler.open {	/* Estado abierto del botón toggler */
+		left: 300px; /* Se desplaza a 300px desde la izquierda */
 	}
-	.section
-	{
-		left: 0;
+	.section { /* Ajusta la posición de las secciones */
+		left: 0; /* Se posicionan al borde izquierdo */
 	}
-	.section.open
-	{
-		left: 270px;
+	.section.open { /* Cuando una sección está abierta */
+		left: 270px; /* Se desplaza 270px a la derecha para dar espacio al aside */
 	}
-	.about .about-content .personal-info .info-item p span
-	{
-		display: block;
-		margin-left: 0;
+	.about .about-content .personal-info .info-item p span { /* Ajusta la visualización de spans en info personal */
+		display: block; /* Se muestra en bloque */
+		margin-left: 0; /* Sin margen izquierdo */
 	}
 }
-@media (max-width:991px)
-{
+
+@media (max-width:991px) { /* Media query para pantallas con ancho máximo de 991px */
 	.contact .contact-info-item,
 	.portfolio .portfolio-item,
-	.service .service-item
-	{
-		flex: 0 0 50%;
-		max-width: 50%;
+	.service .service-item { /* Ajusta ítems en contacto, portfolio y servicios */
+		flex: 0 0 50%; /* Cada ítem ocupa 50% del ancho */
+		max-width: 50%; /* Ancho máximo de 50% */
 	}
 	.about .about-content .experience,
 	.about .about-content .education,
-	.home .home-info
-	{
-		flex: 0 0 100%;
-		max-width: 100%;
+	.home .home-info { /* Ajusta bloques en About y Home */
+		flex: 0 0 100%; /* Ocupan el 100% del ancho */
+		max-width: 100%; /* Ancho máximo de 100% */
 	}
-	.home .home-img
-	{
+	.home .home-img { /* Oculta la imagen en la sección Home en pantallas pequeñas */
 		display: none;
 	}
 }
-@media (max-width:767px)
-{
+
+@media (max-width:767px) { /* Media query para pantallas con ancho máximo de 767px */
 	.contact .contact-form .col-6,
 	.contact .contact-info-item,
 	.portfolio .portfolio-item,
@@ -836,8 +852,7 @@ h3.my-profession
 	.about .about-content .experience,
 	.about .about-content .education,
 	.about .about-content .skills,
-	.about .about-content .personal-info
-	{
+	.about .about-content .personal-info { /* Ajusta múltiples elementos para ocupar el 100% del ancho */
 		flex: 0 0 100%;
 		max-width: 100%;
 	}	
