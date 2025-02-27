@@ -846,7 +846,7 @@ h3.my-profession { /* Título que indica la profesión */
 		z-index: -1;
 		margin: auto; /* Centrado automático */
 		border-radius: 30%; /* Bordes redondeados de 5px */
-		height: 750px; /* Altura fija de 400px */
+		height: 500px; /* Altura fija de 400px */
 	}
 	.home-info p{
 		color: var(--text-black-900); /* Color del texto según variable */
