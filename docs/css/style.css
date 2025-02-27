@@ -826,9 +826,9 @@ h3.my-profession { /* Título que indica la profesión */
 }
 
 @media (max-width:991px) { /* Media query para pantallas con ancho máximo de 991px */
-	/*.home.section .container{
+	.home.section .container{
 		position: relative;
-	}*/	
+	}
 	.home.section .container::before {
 		content: "";
 		position: absolute;
