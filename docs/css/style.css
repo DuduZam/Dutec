@@ -181,17 +181,9 @@ ul { /* Selecciona elementos de lista no ordenada */
 	text-transform: capitalize; /* Capitaliza la primera letra de cada palabra */
 }
 
-.aside .logo a { /* Estilos para el enlace del logotipo */
-	color: var(--text-black-900); /* Color del texto según la variable */
-	font-weight: 700; /* Texto en negrita */
-	padding: 15px 20px; /* Padding vertical de 15px y horizontal de 20px */
-	font-size: 30px; /* Tamaño de fuente de 30px */
-	letter-spacing: 5px; /* Espaciado entre letras de 5px */
-	position: relative; /* Posición relativa para pseudo-elementos */
-}
-.aside .logo a img{
+.aside .logo img{	
+	padding: 15px 20px; /* Padding vertical de 15px y horizontal de 20px */	
 	width: 200px;
-	padding-bottom: 50px;
 }
 
 .aside .logo a span { /* Estilos para el span dentro del logotipo */
