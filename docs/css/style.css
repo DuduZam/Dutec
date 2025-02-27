@@ -842,7 +842,7 @@ h3.my-profession { /* Título que indica la profesión */
 		background: url("../images/hero.png") center/cover no-repeat;
 		/* Color de fondo de la sección (lo que se verá en la parte donde la imagen se desvanece) */
 		background-color: transparent; /* O el color que prefieras */
-		opacity: 0.4;
+		opacity: 0.23;
 		z-index: -1;
 		margin: auto; /* Centrado automático */
 		border-radius: 30%; /* Bordes redondeados de 5px */
