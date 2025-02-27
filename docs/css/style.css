@@ -343,15 +343,15 @@ h3.my-profession { /* Título que indica la profesión */
 	position: relative; /* Posición relativa para pseudo-elementos */	
 }
 
-.home-img::after { /* Pseudo-elemento después de la imagen */
+.home-img::after {	
 	content: ''; /* Contenido vacío */
 	position: absolute; /* Posición absoluta */
 	height: 80px; /* Altura de 80px */
 	width: 80px; /* Ancho de 80px */
 	border-bottom: 10px solid var(--skin-color); /* Borde inferior de 10px en "skin-color" */
 	border-right: 10px solid var(--skin-color); /* Borde derecho de 10px en "skin-color" */
-	right: 25px; /* Ubicado a 20px del borde derecho */
-	bottom: -50px; /* Ubicado 40px por debajo del contenedor */	
+	right: 40px; /* Ubicado a 25px del borde derecho */
+	bottom: 40px; /* Ubicado -50px por debajo del contenedor */	
 }
 
 .home-img::before { /* Pseudo-elemento antes de la imagen */
@@ -369,7 +369,7 @@ h3.my-profession { /* Título que indica la profesión */
 	margin: auto; /* Centrado automático */
 	border-radius: 100px; /* Bordes redondeados de 5px */
 	height: 300px; /* Altura fija de 400px */
-	margin-right: 75px;	
+	margin-right: 60px;	
 	margin-bottom: 30px;	
 }
 
@@ -794,6 +794,9 @@ h3.my-profession { /* Título que indica la profesión */
 }
 
 @media (max-width:1200px) { /* Media query para pantallas con ancho máximo de 1200px */
+	.home-img::before {
+		margin-left: 20px;	 /* Pseudo-elemento después de la imagen */
+	}
 	.section .container { /* Ajusta el padding en contenedores dentro de secciones */
 		padding-top: 70px; /* Incrementa el padding superior a 70px */
 	}
@@ -823,6 +826,32 @@ h3.my-profession { /* Título que indica la profesión */
 }
 
 @media (max-width:991px) { /* Media query para pantallas con ancho máximo de 991px */
+	/*.home.section .container{
+		position: relative;
+	}*/	
+	.home.section .container::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		/* Aquí combinamos un degradado que oscurece la parte superior (para mejorar la legibilidad)
+		   y se va aclarando hacia abajo, junto con la imagen */
+		/* Coloca la imagen de fondo */
+		background: url("../images/hero.png") center/cover no-repeat;
+		/* Color de fondo de la sección (lo que se verá en la parte donde la imagen se desvanece) */
+		background-color: transparent; /* O el color que prefieras */
+		opacity: 0.4;
+		z-index: -1;
+		margin: auto; /* Centrado automático */
+		border-radius: 30%; /* Bordes redondeados de 5px */
+		height: 750px; /* Altura fija de 400px */
+	}
+	.home-info p{
+		color: var(--text-black-900); /* Color del texto según variable */
+	}
+
 	.contact .contact-info-item,
 	.portfolio .portfolio-item,
 	.service .service-item { /* Ajusta ítems en contacto, portfolio y servicios */
