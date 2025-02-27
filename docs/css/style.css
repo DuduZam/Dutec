@@ -148,7 +148,7 @@ ul { /* Selecciona elementos de lista no ordenada */
 	background: var(--skin-color); /* Fondo según la variable "skin-color" */
 	transition: all 0.6s ease; /* Transición suave para efectos hover */
 }
-
+	
 .btn:hover { /* Efecto hover en botones */
 	transform: scale(1.07); /* Incrementa el tamaño al 107% */
 }
