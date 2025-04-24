@@ -602,7 +602,8 @@ h3.my-profession { /* Título que indica la profesión */
 /* SERVICE */
 .service .container { /* Contenedor de la sección de servicios */
 	padding-bottom: 30px; /* Padding inferior de 40px */
-	position: absolute;	
+	position: absolute;
+	padding-right: 30px;
 }
 
 .service .service-item { /* Ítem individual de servicio */
@@ -856,7 +857,7 @@ h3.my-profession { /* Título que indica la profesión */
 	.portfolio .portfolio-item,
 	.service .service-item { /* Ajusta ítems en contacto, portfolio y servicios */
 		flex: 0 0 50%; /* Cada ítem ocupa 50% del ancho */
-		max-width: 50%; /* Ancho máximo de 50% */
+		max-width: 50%; /* Ancho máximo de 50% */		
 	}
 	.about .about-content .experience,
 	.about .about-content .education,
@@ -880,5 +881,8 @@ h3.my-profession { /* Título que indica la profesión */
 	.about .about-content .personal-info { /* Ajusta múltiples elementos para ocupar el 100% del ancho */
 		flex: 0 0 100%;
 		max-width: 100%;
+	}
+	.service .cotainer{
+		padding-right: 30px;
 	}	
 }
